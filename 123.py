@@ -1,32 +1,23 @@
-with open('recipes.txt', 'r', encoding = 'utf-8') as f:
-    lines = f.read().splitlines()
-    dict = {}
-    for i in enumerate(lines):
-        dict.setdefault(i[0], i[1])
-    cook_book={}
-    dish = 0
-    dish_list =[]
+with open('recipes.txt', 'r', encoding = 'utf-8') as file_work:
+    cook_book = {}
 
-    dish_dict = {}
+    for line in file_work:
+        dish_name = 0
+        counter = 0
+        list_of_ingridient =[]
 
+        if line.strip().isdigit() == False and line.strip() != '' and line.strip().__contains__('|') == False:
+            dish_name=line.strip()
 
-    for index, line in dict.items():
-        t = 0
-        x = 0
-        y = 0
-        a = 0
-        if index == a:
-            dish = line
-        if index == a+1:
-            t = line
-            x = line
-            y = line
-        dish_dict.setdefault('ingredient_name', t)
-        dish_dict.setdefault('quantity', x)
-        dish_dict.setdefault('measure', y)
-        dish_list.append(dish_dict)
-        cook_book.setdefault(dish, dish_list)
+        elif line.strip().isdigit() == True:
+            counter += int(line.strip())+3
+        elif line.strip().__contains__('|') == True:
+            for i in
+            temp_dict = {}
+            temp_dict.setdefault('ingredient_name',line.strip())
+            list_of_ingridient.append(temp_dict)
 
+        elif line.strip() == '': break
+        cook_book.setdefault(dish_name, list_of_ingridient)
+        print(cook_book)
 
-    print(dish_dict)
-    print(dish)
